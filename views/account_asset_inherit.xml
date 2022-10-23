@@ -13,6 +13,9 @@
                 <xpath expr="//field[@name='original_value']" position="before">
                     <field name="code" force_save="1"/>
                 </xpath>
+                <xpath expr="//button[@name='compute_depreciation_board']" position="after">
+                    <button name="print_barcode" type="object" string="Print Label" class="oe_highlight"/>
+                </xpath>
             </field>
         </record>
     </data>
