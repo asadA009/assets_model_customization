@@ -5,17 +5,13 @@ class AccountAsset(models.Model):
     _inherit = 'account.asset'
     _description = 'Account Asset inherit'
 
-    sequence_name = fields.Char(string='Asset Sequence', default='New')
+    sequence_id = fields.Many2one('ir.sequence', string='Sequence', domain=[('is_active', '=', True)])
+    code = fields.Char(string='Code')
+
+    @api.onchange('sequence_id')
+    def _active_model(self):
+        self.sequence_id.is_active = True
 
     @api.onchange('model_id')
-    def _onchange_model_id(self):
-        self.name = self.model_id.sequence_name
-        res = super(AccountAsset, self)._onchange_model_id()
-        return res
-
-    @api.model
-    def create(self, vals):
-        vals['sequence_name'] = self.env['ir.sequence'].next_by_code('asset.seq') or 'New'
-        result = super(AccountAsset, self).create(vals)
-        return result
-
+    def _sequence_for_asset(self):
+        self.code = self.env['ir.sequence'].next_by_code(self.sequence_id.code)

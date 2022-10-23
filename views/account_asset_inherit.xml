@@ -8,7 +8,10 @@
             <field name="inherit_id" ref="account_asset.view_account_asset_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='method']" position="before">
-                    <field name="sequence_name"/>
+                    <field name="sequence_id"/>
+                </xpath>
+                <xpath expr="//field[@name='original_value']" position="before">
+                    <field name="code" force_save="1"/>
                 </xpath>
             </field>
         </record>

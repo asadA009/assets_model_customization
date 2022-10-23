@@ -2,7 +2,7 @@
 {
     'name': "Assets Model Customization",
 
-    'summary': 't',
+    'summary': '',
 
     'description': """
         
@@ -18,7 +18,6 @@
 
     # always loaded
     'data': [
-        'data/ir_sequence.xml',
         'views/account_asset_inherit.xml'
     ],
     # only loaded in demonstration mode
