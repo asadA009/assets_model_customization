@@ -10,7 +10,6 @@
         <record id="inventory_cost_user" model="res.groups">
             <field name="name">Inventory Cost User</field>
             <field name="category_id" ref="assets_model_customization.inventory_security_cat"/>
-            <field name="users" eval="[(4, ref('base.group_user'))]"/>
         </record>
     </data>
 </odoo>
