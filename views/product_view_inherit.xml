@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
+        <!--Product Variant Tree view-->
         <record id="product_view_tree_inherit" model="ir.ui.view">
             <field name="name">product.view.form.inherit</field>
             <field name="model">product.product</field>
@@ -13,11 +13,15 @@
             </field>
         </record>
 
+        <!--        Product ,Product Form view-->
         <record id="product_view_normal_form_inherit" model="ir.ui.view">
             <field name="name">product.view.normal.form.inherit</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
+                <xpath expr="//label[@for='standard_price']" position="attributes">
+                    <attribute name="groups">assets_model_customization.inventory_cost_user</attribute>
+                </xpath>
                 <xpath expr="//field[@name='standard_price']" position="attributes">
                     <attribute name="groups">assets_model_customization.inventory_cost_user</attribute>
                 </xpath>
@@ -29,6 +33,22 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='standard_price']" position="attributes">
+                    <attribute name="groups">assets_model_customization.inventory_cost_user</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Product Template form view-->
+
+        <record id="product_view_template_form_inherit" model="ir.ui.view">
+            <field name="name">product.view.normal.form.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='standard_price']" position="attributes">
+                    <attribute name="groups">assets_model_customization.inventory_cost_user</attribute>
+                </xpath>
                 <xpath expr="//field[@name='standard_price']" position="attributes">
                     <attribute name="groups">assets_model_customization.inventory_cost_user</attribute>
                 </xpath>

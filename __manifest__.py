@@ -2,7 +2,7 @@
 {
     'name': "Assets Model Customization",
 
-    'summary': '',
+    'summary': 'Customizations',
 
     'description': """
         
@@ -22,6 +22,7 @@
         'views/account_asset_inherit.xml',
         'views/product_view_inherit.xml',
         'views/sale_order_view_inherit.xml',
+        'views/res_config_setting_inherit.xml',
         'report/barcode_report.xml',
     ],
     # only loaded in demonstration mode
