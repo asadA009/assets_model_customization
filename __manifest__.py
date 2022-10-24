@@ -18,7 +18,8 @@
 
     # always loaded
     'data': [
-        'views/account_asset_inherit.xml'
+        'views/account_asset_inherit.xml',
+        'report/barcode_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

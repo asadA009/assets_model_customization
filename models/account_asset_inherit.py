@@ -14,4 +14,13 @@ class AccountAsset(models.Model):
 
     @api.onchange('model_id')
     def _sequence_for_asset(self):
+        """
+            Update sequence into Asset Form
+        """
         self.code = self.env['ir.sequence'].next_by_code(self.sequence_id.code)
+
+    def print_barcode(self):
+        """
+            Print The Asset Barcode Report
+        """
+        return self.env.ref('assets_model_customization.report_account_asset_barcode').report_action(self)

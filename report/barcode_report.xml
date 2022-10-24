@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="report_account_asset_barcode"
+                model="account.asset"
+                string="Asset Barcode"
+                name="assets_model_customization.report_account_asset_barcode_template"
+                file="assets_model_customization.report_account_asset_barcode_template"
+                report_type="qweb-pdf"
+                menu="False"
+        />
+
+        <template id="report_account_asset_barcode_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <span style="margin-left:-60px;">
+                                <t t-if="doc.code">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.code, 600, 100)"
+                                         style="width:350px;height:60px;"/>
+                                </t>
+                            </span>
+                            <br/>
+                            <t t-if="doc.code">
+                                <span style="margin-left:80px;" t-field="doc.code"/>
+                            </t>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
