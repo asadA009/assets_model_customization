@@ -14,11 +14,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['account_asset'],
+    'depends': ['account_asset', 'stock_account', 'product'],
 
     # always loaded
     'data': [
+        'security/security_groups.xml',
         'views/account_asset_inherit.xml',
+        'views/product_view_inherit.xml',
         'report/barcode_report.xml',
     ],
     # only loaded in demonstration mode
